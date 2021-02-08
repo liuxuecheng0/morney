@@ -1,44 +1,30 @@
 import React from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
 import {
     HashRouter as Router,
     Switch,
     Route,
-    Link,
     Redirect
 } from 'react-router-dom';
+import Nav from "./components/Nav";
 const Wrapper = styled.div`
   border: 1px solid red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
-`
+`;
 const Main = styled.div`
   border: 1px solid blue;
   flex-grow: 1;
-`
-const Nav =styled.nav`
-    border: 1px solid pink;
-  >ul{
-    display: flex;
-    >li{
-      width: 33.3333%;
-      text-align: center;
-      padding: 16px;
-    }
-  }
-`
+`;
+
 function App() {
   return (
     <Router>
         <Wrapper>
             <Main>
                 <Switch>
-
                     <Route path="/statistics">
                         <Statistics />
                     </Route>
@@ -54,13 +40,7 @@ function App() {
                     <Redirect exact from="/" to="/notes"></Redirect>
                 </Switch>
             </Main>
-            <Nav>
-                <ul>
-                    <li><Link to="/notes">Notes</Link></li>
-                    <li><Link to="/statistics">Statistics</Link></li>
-                    <li><Link to="/label">Label</Link></li>
-                </ul>
-            </Nav>
+            <Nav/>
         </Wrapper>
     </Router>
 
